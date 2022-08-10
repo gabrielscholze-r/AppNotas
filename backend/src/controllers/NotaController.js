@@ -6,7 +6,7 @@ module.exports = {
         
         note.save((err) => {
             if(err){
-                res.status(500).send({message: `${err} - falha ao cadastrar o livro!`})
+                res.status(500).send({message: `${err} - falha ao cadastrar a nota!`})
             }else{
                 res.status(201).send(note.toJSON())
             }
