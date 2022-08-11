@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Autor from '../config/context/Autor';
+import { BrowserRouter, Route, Routes as Switch } from 'react-router-dom'
+import Auth from './auth.js';
+import UnAuth from './unAuth.js';
 
 function Routes() {
-    return (
-        <div>
+    const [auth, setAuth] = useContext(Autor)
+    console.log(auth.length)
+    function isAuth() {
 
-        </div>
-    );
+        if (auth == undefined || auth == {}) {
+            return (<UnAuth />)
+        } else {
+            return (<Auth />)
+        }
+    }
+    return (
+        <>
+        {isAuth()}
+        </>
+    )
 }
 
 export default Routes;
