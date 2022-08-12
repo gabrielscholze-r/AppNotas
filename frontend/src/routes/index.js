@@ -9,7 +9,7 @@ function Routes() {
     console.log(auth.length)
     function isAuth() {
 
-        if (auth == undefined || auth == {}) {
+        if (auth == undefined || auth == {} || Object.keys(auth).length==0) {
             return (<UnAuth />)
         } else {
             return (<Auth />)
