@@ -16,10 +16,11 @@ function Register() {
     else{
       const user = await API.post('/Usuario', {email, nome, senha})
       setUsuario(user.data)
+      swal("USUARIO REGISTRADO!");
     }
   }
   return (
-    <div className="register-container">
+    <div className="register-container grid">
       <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)} value={email} />
       <input type="text" placeholder="Nome" onChange={e => setNome(e.target.value)} value={nome} />
       <input type="text" placeholder="Senha" onChange={e => setSenha(e.target.value)} value={senha} />

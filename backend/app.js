@@ -1,7 +1,7 @@
 const routes = require("./src/rotas/index.js")
 const express = require("express")
 // const bodyParser = require('body-parser');
-
+const cors = require('cors');
 
 const dbConnect = require("./src/config/dbConnect.js")
 
@@ -13,7 +13,12 @@ dbConnect.once("open", ()=> {
 
 const app = express()
 app.use(express.json())
-
+app.use(cors())
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSucessStatus: '200'
+}
+app.use(cors(corsOptions))
 routes(app)
 
 
