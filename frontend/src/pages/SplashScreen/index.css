@@ -1,0 +1,48 @@
+.splashscreen-container{
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-color: rgb(30, 30, 30);
+}
+.content-container{
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+}
+.title{
+    width: fit-content;
+    font-size: 3rem;
+    transition: 0.2s;
+}
+.button-container{
+
+}
+.title:hover{
+    color: rgb(49, 49, 251);
+}
+.button{
+    font-weight: bold;
+    font-size: 2rem;
+}
+.log-in{
+    -webkit-box-shadow: 2px 2px 2px 1px #000000; 
+box-shadow: 2px 2px 2px 1px #000000;
+    color: black;
+    background-color: white;
+    transition: 0.2s;
+}
+.log-in:hover{
+    color: white;
+    background-color: rgb(49, 49, 251);
+}
+.register{
+    -webkit-box-shadow: 2px 2px 2px 1px #000000; 
+box-shadow: 2px 2px 2px 1px #000000;
+    background-color: rgb(49, 49, 251);
+    transition: 0.2s;
+}
+.register:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
