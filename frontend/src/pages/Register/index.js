@@ -1,5 +1,6 @@
 import react, { useContext, useEffect, useState } from "react";
 import './index.css'
+import { Link } from "react-router-dom";
 import API from '../../config/API.js'
 import swal from 'sweetalert'
 import Autor from '../../config/context/Autor.js'
@@ -8,23 +9,32 @@ function Register() {
   const [email, setEmail] = useState("")
   const [nome, setNome] = useState("")
   const [senha, setSenha] = useState("")
+  const [cSenha, setcSenha] = useState("")
 
-  async function cadastrar(){
-    if(!email || !nome || !senha){
+  async function cadastrar() {
+    if (!email || !nome || !senha || !cSenha) {
       swal("INFORMAÇÕES FALTANDO!");
     }
-    else{
-      const user = await API.post('/Usuario', {email, nome, senha})
+    else if (senha != cSenha) {
+      swal("SENHAS DIFERENTES!");
+    }
+    else {
+      const user = await API.post('/Usuario', { email, nome, senha })
       setUsuario(user.data)
       swal("USUARIO REGISTRADO!");
     }
   }
   return (
-    <div className="register-container grid">
-      <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)} value={email} />
-      <input type="text" placeholder="Nome" onChange={e => setNome(e.target.value)} value={nome} />
-      <input type="text" placeholder="Senha" onChange={e => setSenha(e.target.value)} value={senha} />
-      <button onClick={() => {cadastrar()}}>Registrar</button>
+    <div className="register-container ">
+      <div className="content-div-container block my-auto">
+        <h1 className="text-6xl mb-2">CADASTRAR</h1>
+        <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)} value={email} className="input-text mx-auto rounded px-2 py-2 my-2" />
+        <input type="text" placeholder="Nome" onChange={e => setNome(e.target.value)} value={nome} className="input-text mx-auto rounded px-2 py-2 my-2" />
+        <input type="password" placeholder="Senha" onChange={e => setSenha(e.target.value)} value={senha} className="input-text mx-auto rounded px-2 py-2 my-2" />
+        <input type="password" placeholder="Confirmar Senha" onChange={e => setcSenha(e.target.value)} value={cSenha} className="input-text mx-auto rounded px-2 py-2 my-2" />
+          <div><button onClick={() => { cadastrar() }} className="register-button px-5 py-2 rounded-xl mt-2">REGISTRAR</button></div>
+          <div><button className="back-button px-5 py-2 rounded-xl mt-2"><Link to='/'>VOLTAR</Link></button></div>  
+      </div>
     </div>
   );
 }

@@ -1,5 +1,55 @@
-.register-container{
+.register-container {
     width: 100%;
     text-align: center;
-    
+    height: 100vh;
+    color: white;
+    background-color: rgb(30, 30, 30);
+    align-items: center;
+}
+
+.input-text {
+    border:3px solid rgb(49, 49, 251);
+    font-size: 1.7rem;
+    color: black;
+    width: 60%;
+    height: fit-content;
+    transition: 0.2s;
+}
+.input-text:focus{
+    border-color: rgb(49, 157, 251);
+    outline: 0;
+}
+.input-text:focus::placeholder{
+    color: transparent;
+}
+.register-button {
+    font-weight: bold;
+    font-size: 2rem;
+    -webkit-box-shadow: 2px 2px 2px 1px #000000;
+    box-shadow: 2px 2px 2px 1px #000000;
+    background-color: rgb(49, 49, 251);
+    transition: 0.2s;
+}
+
+.register-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+.content-div-container{
+position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.back-button{
+    -webkit-box-shadow: 2px 2px 2px 1px #000000; 
+box-shadow: 2px 2px 2px 1px #000000;
+    color: black;
+    background-color: white;
+    transition: 0.2s;
+}
+
+.back-button:hover{
+    color: white;
+    background-color: rgb(49, 49, 251);
 }
