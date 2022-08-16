@@ -1,0 +1,47 @@
+.backbutton{
+    border: 2px solid rgb(49, 49, 251);
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(49, 49, 251);
+    color: white;
+    transition: 0.2s;
+}
+.backbutton:hover{
+    border-width: 2px;
+    border-color: black;
+    background-color: #ffff;
+    color: rgb(30, 30, 30);
+}
+
+.loginbutton{
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid white;
+    background-color: white;
+    color: rgb(30, 30, 30);
+    transition: 0.2s;
+}
+.loginbutton:hover{
+    border: 2px solid rgb(49, 49, 251);
+    background-color: rgb(49, 49, 251);
+    color: white;
+}
+
+.inputtext:focus::placeholder{
+    color: transparent;
+}
+.inputtext{
+    width: 50%;
+    height: fit-content;
+}
+.Login{
+    width: 100%;
+    background-color: rgb(30, 30, 30);
+    height: 100vh;
+}
+.contentdiv{
+    position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

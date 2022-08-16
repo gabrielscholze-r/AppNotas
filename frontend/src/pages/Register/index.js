@@ -33,7 +33,7 @@ function Register() {
         <input type="password" placeholder="Senha" onChange={e => setSenha(e.target.value)} value={senha} className="input-text mx-auto rounded px-2 py-2 my-2" />
         <input type="password" placeholder="Confirmar Senha" onChange={e => setcSenha(e.target.value)} value={cSenha} className="input-text mx-auto rounded px-2 py-2 my-2" />
           <div><button onClick={() => { cadastrar() }} className="register-button px-5 py-2 rounded-xl mt-2">REGISTRAR</button></div>
-          <div><button className="back-button px-5 py-2 rounded-xl mt-2"><Link to='/'>VOLTAR</Link></button></div>  
+          <div><Link to='/'><button className="back-button px-5 py-2 rounded-xl mt-2">VOLTAR</button></Link></div>  
       </div>
     </div>
   );
