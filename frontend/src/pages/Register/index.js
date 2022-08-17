@@ -19,6 +19,7 @@ function Register() {
       swal("SENHAS DIFERENTES!");
     }
     else {
+      // TRATAR CASO O USUARIO JA EXISTA!!!!!!!!!!!!
       const user = await API.post('/Usuario', { email, nome, senha })
       setUsuario(user.data)
       swal("USUARIO REGISTRADO!");
