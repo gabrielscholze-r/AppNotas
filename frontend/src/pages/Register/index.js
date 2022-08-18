@@ -6,6 +6,7 @@ import swal from 'sweetalert'
 import Autor from '../../config/context/Autor.js'
 function Register() {
   const [usuario, setUsuario] = useContext(Autor)
+  const [error, setError] = useState(0)
   const [email, setEmail] = useState("")
   const [nome, setNome] = useState("")
   const [senha, setSenha] = useState("")
@@ -20,9 +21,17 @@ function Register() {
     }
     else {
       // TRATAR CASO O USUARIO JA EXISTA!!!!!!!!!!!!
-      const user = await API.post('/Usuario', { email, nome, senha })
-      setUsuario(user.data)
-      swal("USUARIO REGISTRADO!");
+      const user = await API.post('/Usuario', { email, nome, senha }).catch((error) =>{
+        setError(1)
+        console.clear()
+      })
+      if(!error){
+        setUsuario(user.data)
+        swal("USUARIO REGISTRADO!");
+      } else {
+        swal("USUARIO JA EXISTE!");
+      }
+       
     }
   }
   return (
