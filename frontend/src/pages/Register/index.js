@@ -6,6 +6,7 @@ import swal from 'sweetalert'
 import Autor from '../../config/context/Autor.js'
 function Register() {
   const [usuario, setUsuario] = useContext(Autor)
+  const [error, setError] = useState(0)
   const [email, setEmail] = useState("")
   const [nome, setNome] = useState("")
   const [senha, setSenha] = useState("")
@@ -19,9 +20,18 @@ function Register() {
       swal("SENHAS DIFERENTES!");
     }
     else {
-      const user = await API.post('/Usuario', { email, nome, senha })
-      setUsuario(user.data)
-      swal("USUARIO REGISTRADO!");
+      // TRATAR CASO O USUARIO JA EXISTA!!!!!!!!!!!!
+      const user = await API.post('/Usuario', { email, nome, senha }).catch((error) =>{
+        setError(1)
+        console.clear()
+      })
+      if(!error){
+        setUsuario(user.data)
+        swal("USUARIO REGISTRADO!");
+      } else {
+        swal("USUARIO JA EXISTE!");
+      }
+       
     }
   }
   return (
@@ -33,7 +43,7 @@ function Register() {
         <input type="password" placeholder="Senha" onChange={e => setSenha(e.target.value)} value={senha} className="input-text mx-auto rounded px-2 py-2 my-2" />
         <input type="password" placeholder="Confirmar Senha" onChange={e => setcSenha(e.target.value)} value={cSenha} className="input-text mx-auto rounded px-2 py-2 my-2" />
           <div><button onClick={() => { cadastrar() }} className="register-button px-5 py-2 rounded-xl mt-2">REGISTRAR</button></div>
-          <div><button className="back-button px-5 py-2 rounded-xl mt-2"><Link to='/'>VOLTAR</Link></button></div>  
+          <div><Link to='/'><button className="back-button px-5 py-2 rounded-xl mt-2">VOLTAR</button></Link></div>  
       </div>
     </div>
   );

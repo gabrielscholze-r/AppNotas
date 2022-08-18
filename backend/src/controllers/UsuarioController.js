@@ -12,13 +12,17 @@ module.exports = {
         if(!email || !nome || !senha) {
             return res.status(400).json({error: "missing information"})
         }
-        let passwordHash = bcrypt.hashSync(senha,5)
-        const NotaCriada = await Usuario.create({
-            email,
-            nome,
-            senha: passwordHash
-        }) 
-        return res.status(201).json(NotaCriada)
+        const existe = await Usuario.findOne({email:email});
+        if(!existe){
+            let passwordHash = bcrypt.hashSync(senha,5)
+            const NotaCriada = await Usuario.create({
+                email,
+                nome,
+                senha: passwordHash
+            }) 
+            return res.status(201).json(NotaCriada)
+        }
+        return res.status(400).json({error: "Usuario ja existe"})
     },
     findByEmail: async (req, res) => {
         const {email} = req.body
@@ -50,9 +54,9 @@ module.exports = {
         if(!User){
             return res.status(404).json({error: "User not Found"})
         }
-        if(bcrypt.compareSync(senha, User.senha)){
-            return res.status(200).json({isLogged: true})
+        if(!(await bcrypt.compare(senha, User.senha, () => {}))){
+            return res.status(200).json({})
         }
-        return res.status(400).json({isLogged: false})
+        return res.status(400).json(User)
     }
 }
