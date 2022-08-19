@@ -11,6 +11,7 @@ function UnAuth() {
         <Route exact path='/' element={<SplashScreen/>}/>
         <Route exact path='/Register' element={<Register/>}/>
         <Route exact path='/Login' element={<Login/>}/>
+        <Route exact path='*' element={<SplashScreen/>}/>
 
     </Routes>
   );
