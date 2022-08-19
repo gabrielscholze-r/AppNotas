@@ -9,7 +9,7 @@ function Auth() {
     return (
         <Switch>
                 <Route path='/NewNote' element={<NewNote/>}/>
-                <Route path='/Home' element={<Homepage/>}/>
+                <Route path='/' element={<Homepage/>}/>
         </Switch>
     );
 }
