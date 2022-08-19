@@ -8,7 +8,6 @@ import Homepage from '../pages/Homepage';
 function Auth() {
     return (
         <Switch>
-                <Route path='/NewNote' element={<NewNote/>}/>
                 <Route path='/' element={<Homepage/>}/>
                 <Route path='*' element={<Homepage/>}/>
         </Switch>
