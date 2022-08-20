@@ -1,0 +1,38 @@
+.newnote-container{
+    background-color: rgb(30, 30, 30);
+}
+
+.input-text-newnote{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: rgb(49, 49, 251);
+    border: 3px solid rgb(49, 49, 251);
+    width: 80%;
+}
+
+.input-text-newnote:focus{
+    outline: 0;
+}
+.input-text-newnote:focus::placeholder{
+    color: transparent;
+}
+.input-text-newnote::placeholder{
+    color: rgba(0, 0, 255, 0.42);
+}
+.submit-newnote{
+     background-color: white;
+     font-size: 1.8rem;
+     transition: 0.2s    ;
+}
+.submit-newnote:hover{
+    background-color: rgb(49,49,251);
+    color: white;
+}
+.titulo-newnote{
+    color: white;
+    font-size: 3rem;
+    transition: 0.2s;
+}
+.titulo-newnote:hover{
+    color: rgb(49,49,251);
+}
