@@ -1,8 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, Navigate } from 'react-router-dom'
+import Autor from '../../config/context/Autor'
 import './index.css'
 
 export default function SplashScreen() {
+  const [autor, seAutor] = useContext(Autor)
   return (
     <div className="splashscreen-container">
       <div className="content-container my-auto mx-auto">
