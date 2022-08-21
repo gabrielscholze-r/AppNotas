@@ -1,11 +1,44 @@
-import React from 'react';
-
+import React, { useContext, useEffect, useState } from 'react';
+import './index.css'
+import API from '../../config/API.js'
+import Autor from '../../config/context/Autor';
 // import { Container } from './styles';
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 function MyNotes() {
-  return <>
-    salve
-  </>;
+  const MySwal = withReactContent(Swal)
+  const [autor, setAutor] = useContext(Autor)
+  const [notas, setNotas] = useState([])
+  async function getData() {
+    console.log(autor._id)
+    await API.get(`/Nota/find/${autor._id}`).then(response => {
+      setNotas(response.data)
+    })
+    .catch(error => {
+      MySwal.fire({
+        title: <strong>OPS...</strong>,
+        html: <i>{error}!</i>,
+        icon: 'error'
+    })
+    })
+
+  }
+  useEffect( () => {
+    getData()
+  },[])
+  
+  
+  return (
+    <div className="myNotes-container">
+      {
+        (notas.length==0) ? (<div className="mx-auto">Nenhuma nota encontrada!</div>) : (notas.map(nota => {
+          return (<div className="mx-auto">
+            {nota.title}
+          </div>)
+        }))
+      }
+    </div>
+  );
 }
 
 export default MyNotes

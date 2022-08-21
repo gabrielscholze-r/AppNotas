@@ -9,10 +9,10 @@ import Content from './config/context/Content';
 function App() {
   // const [autor, setAutor] = useState({})
   const [autor, setAutor] = useState({
-    "_id": "62f5c0236f709d253f28932b",
-    "email": "123@123.COM",
-    "nome": " ASDASD",
-    "senha": "$2b$05$zTRvKj.gvex8gWggfQuHlONvNKA2y1b2L5LQBBeoxEocbkRdbOBlG"
+    "_id": "62e6c85ab3d17a3f2aa88e6f",
+    "email": "rogerio@ceni.bis",
+    "nome": "Rogerio Ceni",
+    "senha": "$2b$05$UC8MLdKwPgHq0X4WyL1NYudwF7uaGkD73Ku8N9zvjpxiXm7.952/e"
 })
   const [content, setContent] = useState(0)
   return (
