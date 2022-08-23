@@ -14,27 +14,30 @@ function MyNotes() {
     await API.get(`/Nota/find/${autor._id}`).then(response => {
       setNotas(response.data)
     })
-    .catch(error => {
-      MySwal.fire({
-        title: <strong>OPS...</strong>,
-        html: <i>{error}!</i>,
-        icon: 'error'
-    })
-    })
+      .catch(error => {
+        MySwal.fire({
+          title: <strong>OPS...</strong>,
+          html: <i>{error}!</i>,
+          icon: 'error'
+        })
+      })
 
   }
-  useEffect( () => {
+  useEffect(() => {
     getData()
-  },[])
-  
-  
+  }, [])
+
+
   return (
     <div className="myNotes-container">
       {
-        (notas.length==0) ? (<div className="mx-auto">Nenhuma nota encontrada!</div>) : (notas.map(nota => {
-          return (<div className="mx-auto">
-            {nota.title}
-          </div>)
+        (notas.length == 0) ? (<div className="mx-auto">Nenhuma nota encontrada!</div>) : (notas.map(nota => {
+          return (
+            <div className="mx-auto px-5 py-5 rounded-xl nota-bloco">
+              <h1>{nota.title}</h1>
+              <h2>{nota.subject}</h2>
+              <p>{nota.body}</p>
+            </div>)
         }))
       }
     </div>
