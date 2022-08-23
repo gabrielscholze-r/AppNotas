@@ -15,7 +15,7 @@ function NewNote() {
         if (!title || !subject || !body) {
             MySwal.fire({
                 title: <strong>OPS...</strong>,
-                html: <i>Faltam informações!</i>,
+                html: <b>Faltam informações!</b>,
                 icon: 'error'
             })
         } else {
@@ -23,7 +23,7 @@ function NewNote() {
             await API.post('/Nota', { title, subject, body }).then(() => {
                 MySwal.fire({
                     title: <strong>Pronto!</strong>,
-                    html: <i>Anotação criada!</i>,
+                    html: <b>Anotação criada!</b>,
                     icon: 'success'
                 })
                 setContent(0)
@@ -32,7 +32,7 @@ function NewNote() {
                 setPosted(false)
                 MySwal.fire({
                     title: <strong>OPS...</strong>,
-                    html: <i>Falha ao cadastrar nota, tente novamente!</i>,
+                    html: <b>Falha ao cadastrar nota, tente novamente!</b>,
                     icon: 'error'
                 })
                 

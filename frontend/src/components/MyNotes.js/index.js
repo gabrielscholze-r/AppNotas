@@ -5,6 +5,7 @@ import Autor from '../../config/context/Autor';
 // import { Container } from './styles';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Note from '../Note';
 function MyNotes() {
   const MySwal = withReactContent(Swal)
   const [autor, setAutor] = useContext(Autor)
@@ -33,11 +34,8 @@ function MyNotes() {
       {
         (notas.length == 0) ? (<div className="mx-auto">Nenhuma nota encontrada!</div>) : (notas.map(nota => {
           return (
-            <div className="mx-auto px-5 py-5 rounded-xl nota-bloco">
-              <h1>{nota.title}</h1>
-              <h2>{nota.subject}</h2>
-              <p>{nota.body}</p>
-            </div>)
+            <Note nota={nota}/>
+          )
         }))
       }
     </div>
