@@ -3,7 +3,8 @@ const Nota = require("../models/Nota.js")
 module.exports = {
     adicionar: async (req, res) => {
         let note = new Nota(req.body)
-        
+        note.numCaracteres=note.body.length;
+        note.dataCriacao= new Date()
         note.save((err) => {
             if(err){
                 res.status(500).send({message: `${err} - falha ao cadastrar a nota!`})
