@@ -5,3 +5,12 @@
     background-color: rgb(1, 1, 60);
     width: fit-content;
 }
+.getnote-button{
+    background-color: rgb(49, 49, 251);
+    transition: 0.2s;
+}
+
+.getnote-button:hover{
+    background-color: rgba(255, 255, 255, 0.778);
+    color: black;
+}
