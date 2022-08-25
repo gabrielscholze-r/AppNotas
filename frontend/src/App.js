@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import Routes from './routes/index.js';
 import Content from './config/context/Content';
+import Nota from './config/context/Nota';
 function App() {
   // const [autor, setAutor] = useState({})
   const [autor, setAutor] = useState({
@@ -13,15 +14,18 @@ function App() {
     "email": "rogerio@ceni.bis",
     "nome": "Rogerio Ceni",
     "senha": "$2b$05$UC8MLdKwPgHq0X4WyL1NYudwF7uaGkD73Ku8N9zvjpxiXm7.952/e"
-})
+  })
   const [content, setContent] = useState(0)
+  const [nota, setNota] = useState({})
   return (
 
     <Autor.Provider value={[autor, setAutor]}>
       <Content.Provider value={[content, setContent]}>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
+        <Nota.Provider value={[nota, setNota]}>
+          <BrowserRouter>
+            <Routes />
+          </BrowserRouter>
+        </Nota.Provider>
       </Content.Provider>
     </Autor.Provider>
 
