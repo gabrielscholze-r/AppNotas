@@ -4,14 +4,19 @@ import './index.css'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Content from '../../config/context/Content.js'
+import Autor from '../../config/context/Autor.js'
 function NewNote() {
     const MySwal = withReactContent(Swal)
+    const [autor, setAutor] = useContext(Autor)
     const [title, setTitle] = useState("")
     const [subject, setSubject] = useState("")
     const [body, setBody] = useState("")
     const [content, setContent] = useContext(Content)
     const [posted, setPosted] = useState(true)
+
+
     async function addNote(e) {
+        console.log(autor._id)
         if (!title || !subject || !body) {
             MySwal.fire({
                 title: <strong>OPS...</strong>,
@@ -19,8 +24,8 @@ function NewNote() {
                 icon: 'error'
             })
         } else {
-
-            await API.post('/Nota', { title, subject, body }).then(() => {
+            let id = autor._id;
+            await API.post('/Nota', { title, subject, body, id}).then(() => {
                 MySwal.fire({
                     title: <strong>Pronto!</strong>,
                     html: <b>Anotação criada!</b>,
