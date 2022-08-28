@@ -1,17 +1,26 @@
 const Nota = require("../models/Nota.js")
-
+const {ObjectId} = require("mongoose")
+const mongoose = require("mongoose")
 module.exports = {
     adicionar: async (req, res) => {
-        let note = new Nota(req.body)
-        note.numCaracteres=note.body.length;
-        note.dataCriacao= new Date()
-        note.save((err) => {
-            if(err){
-                res.status(500).send({message: `${err} - falha ao cadastrar a nota!`})
-            }else{
-                res.status(201).send(note.toJSON())
-            }
-        })
+        const { title, subject, body, autor } = req.body
+
+        const note = await Nota.create({
+            title: title,
+            subject: subject,
+            body: body,
+            autor: ObjectId(autor)
+        })// let note = new Nota(req.body)
+
+        note.numCaracteres = note.body.length;
+        note.dataCriacao = new Date()
+        if (!note) {
+            res.status(500).send({ message: `${err} - falha ao cadastrar a nota!` })
+        }
+        else {
+            res.status(201).send(note.toJSON())
+        }
+
     },
     read: async (req, res) => {
         Nota.find().populate("autor", "email nome").exec((err, livros) => {
@@ -21,23 +30,23 @@ module.exports = {
             res.status(200).json(livros)
         })
     },
-    findByUser: async (req,res) => {
-        const {id} = req.params
-        const lista = await Nota.find({autor: id})
-        if(!lista){
-            return res.status(404).json({message: "Nenhuma nota no usuario"})
+    findByUser: async (req, res) => {
+        const { id } = req.params
+        const lista = await Nota.find({ autor: id })
+        if (!lista) {
+            return res.status(404).json({ message: "Nenhuma nota no usuario" })
         }
         return res.status(200).send(lista)
     },
     deleta: async (req, res) => {
-        const {id} = req.params
-        try {
-            await Nota.findByIdAndDelete(id);
-            return res.status(200)
-        } catch (error) {
-            return res.status(500).json({error: error.message})
+        const { id } = req.params;
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(401).json({error: "Regitro não encontrado"});
         }
-        
+        const del = await Nota.findOneAndDelete({_id:id});
+        return res.json(del);
+            
+
 
     }
 }
