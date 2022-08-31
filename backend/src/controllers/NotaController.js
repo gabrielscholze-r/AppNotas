@@ -1,5 +1,4 @@
 const Nota = require("../models/Nota.js")
-const {ObjectId} = require("mongoose")
 const mongoose = require("mongoose")
 module.exports = {
     adicionar: async (req, res) => {
@@ -9,11 +8,9 @@ module.exports = {
             title: title,
             subject: subject,
             body: body,
-            autor: ObjectId(autor)
-        })// let note = new Nota(req.body)
-
-        note.numCaracteres = note.body.length;
-        note.dataCriacao = new Date()
+            autor: mongoose.Types.ObjectId(autor),
+            dataCriacao: new Date()
+        })
         if (!note) {
             res.status(500).send({ message: `${err} - falha ao cadastrar a nota!` })
         }
@@ -45,8 +42,16 @@ module.exports = {
         }
         const del = await Nota.findOneAndDelete({_id:id});
         return res.json(del);
+    },
+    atualiza: async (req, res) => {
+        const {id, title, subject, body} = req.body
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(401).json({error: "informação inválida"});
+        }
+        await Nota.updateOne({_id:id}, {
+            title: title,
+            subject: subject,
             
-
-
+        })
     }
 }

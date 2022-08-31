@@ -15,7 +15,6 @@ function MyNotes() {
   const [autor, setAutor] = useContext(Autor)
   const [notas, setNotas] = useState([])
   async function getData() {
-    console.log(autor._id)
     await API.get(`/Nota/find/${autor._id}`).then(response => {
       setNotas(response.data)
     })
@@ -26,6 +25,15 @@ function MyNotes() {
           icon: 'error'
         })
       })
+    var items = Object.keys(notas).map(function (key) {
+      return [key, notas[key]];
+    });
+
+    // Sort the array based on the second element
+    items.sort(function (first, second) {
+      return second[4] - first[4];
+    })
+
 
   }
   useEffect(() => {
@@ -48,7 +56,12 @@ function MyNotes() {
                 <h1 className='text-5xl uppercase py-1 mt-2'>{nota.title}</h1>
                 <button className='px-5 py-2 text-2xl uppercase getnote-button rounded-xl align-center' onClick={() => { setNota(nota); setContent(2) }}>VER</button>
               </div>
-              <h2 className='text-3xl py-1 mt-2'>{nota.subject}</h2>
+              <div className='flex justify-between align-center'>
+                <h2 className='text-3xl py-1 mt-2'>{nota.subject}</h2>
+                <h1 className="py-1 mt-2">{new Date(nota.dataCriacao).getDate()}/{new Date(nota.dataCriacao).getMonth()+1}/{new Date(nota.dataCriacao).getFullYear()}</h1>
+
+
+              </div>
             </div>
           )
         }))

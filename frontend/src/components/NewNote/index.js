@@ -16,7 +16,6 @@ function NewNote() {
 
 
     async function addNote(e) {
-        console.log(autor._id)
         if (!title || !subject || !body) {
             MySwal.fire({
                 title: <strong>OPS...</strong>,
