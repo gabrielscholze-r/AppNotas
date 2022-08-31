@@ -25,7 +25,7 @@ function NewNote() {
             })
         } else {
             let id = autor._id;
-            await API.post('/Nota', { title, subject, body, id}).then(() => {
+            await API.post('/Nota', { title, subject, body, autor:id}).then(() => {
                 MySwal.fire({
                     title: <strong>Pronto!</strong>,
                     html: <b>Anotação criada!</b>,

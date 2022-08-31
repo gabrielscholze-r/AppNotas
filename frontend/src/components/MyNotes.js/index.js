@@ -36,12 +36,17 @@ function MyNotes() {
   return (
     <div className="myNotes-container">
       {
-        (notas.length == 0) ? (<div className="mx-auto">Nenhuma nota encontrada!</div>) : (notas.map(nota => {
+        (notas.length == 0) ? (
+          <div className="text-center">
+            <div className="mx-auto"><h2 className="text-white text-center text-2xl mt-9 uppercase">Nenhuma nota encontrada!</h2></div>
+            <button className="button-navigation px-5 py-1 rounded-xl text-2xl mt-10" onClick={() => { setContent(1) }}>CRIAR NOVA NOTA</button>
+          </div>
+        ) : (notas.map(nota => {
           return (
             <div className="mx-auto px-5 py-5 rounded-xl nota-bloco my-5">
               <div className="flex justify-between">
                 <h1 className='text-5xl uppercase py-1 mt-2'>{nota.title}</h1>
-                <button className='px-5 py-2 text-2xl uppercase getnote-button rounded-xl align-center' onClick={() => {setNota(nota); setContent(2)}}>VER</button>
+                <button className='px-5 py-2 text-2xl uppercase getnote-button rounded-xl align-center' onClick={() => { setNota(nota); setContent(2) }}>VER</button>
               </div>
               <h2 className='text-3xl py-1 mt-2'>{nota.subject}</h2>
             </div>
