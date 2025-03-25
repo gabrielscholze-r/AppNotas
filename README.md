@@ -9,11 +9,6 @@ Um aplicativo full-stack para gerenciamento de notas com **autenticação segura
 
 ## 🚀 Funcionalidades
 
-### 🔒 Segurança & Autenticação
-- 🛡️ Autenticação via JWT
-- 🔐 Criptografia de senhas com bcrypt
-- 🚫 Rotas protegidas e autorização
-
 ### 📝 Gerenciamento de Notas
 - 🔍 Busca inteligente
 - 🗂️ Organização por categorias
