@@ -1,40 +1,35 @@
-# AppNotas - Note Taking Application
+# 📓 AppNotas - Aplicativo Moderno de Notas
 
-![App Screenshot](./client/public/screenshot.png) <!-- Add actual screenshot path -->
+![Licença](https://img.shields.io/badge/Licença-MIT-blue.svg)
+![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-16.x-339933?logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-5.0-47A248?logo=mongodb)
 
-A full-stack note-taking application with user authentication and CRUD functionality.
+Um aplicativo full-stack para gerenciamento de notas com **autenticação segura** e **editor de texto rico**.
 
-## Features
+## 🚀 Funcionalidades
 
-- **User Authentication**
-  - Secure JWT-based registration/login
-  - Password hashing with bcrypt
-  - Protected routes
+### 🔒 Segurança & Autenticação
+- 🛡️ Autenticação via JWT
+- 🔐 Criptografia de senhas com bcrypt
+- 🚫 Rotas protegidas e autorização
 
-- **Note Management**
-  - Create, read, update, and delete notes
-  - Rich text formatting
-  - Note categorization
-  - Search functionality
+### 📝 Gerenciamento de Notas
+- ✨ Editor de texto rico (React Quill)
+- 🔍 Busca inteligente
+- 🗂️ Organização por categorias
+- 📱 Design responsivo mobile-first
 
-- **Additional Features**
-  - Responsive design
-  - Clean user interface
-  - State management with React Context
-  - REST API backend
+### ⚡ Destaques Técnicos
+- 🌐 API REST backend
+- ♻️ Context API para gerenciamento de estado
+- 🧩 Arquitetura modular de componentes
+- 🔄 Atualizações em tempo real
 
-## Technologies
+## 🛠️ Tecnologias
 
-**Frontend**
-- React.js
-- React Router
-- Axios
-- React Quill (Rich Text Editor)
-- CSS Modules
-
-**Backend**
-- Node.js
-- Express.js
-- MongoDB (with Mongoose)
-- JSON Web Tokens (JWT)
-- Bcrypt.js
+| **Frontend**              | **Backend**               | **Banco de Dados**     |
+|---------------------------|---------------------------|------------------------|
+| ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react) | ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) | ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) |
+| ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) | ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) | ![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge) |
+| ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge) | ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens) |  |
