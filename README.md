@@ -15,10 +15,8 @@ Um aplicativo full-stack para gerenciamento de notas com **autenticação segura
 - 🚫 Rotas protegidas e autorização
 
 ### 📝 Gerenciamento de Notas
-- ✨ Editor de texto rico (React Quill)
 - 🔍 Busca inteligente
 - 🗂️ Organização por categorias
-- 📱 Design responsivo mobile-first
 
 ### ⚡ Destaques Técnicos
 - 🌐 API REST backend
