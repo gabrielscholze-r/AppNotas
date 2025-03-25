@@ -1,6 +1,5 @@
 # 📓 AppNotas - Aplicativo Moderno de Notas
 
-![Licença](https://img.shields.io/badge/Licença-MIT-blue.svg)
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-16.x-339933?logo=node.js)
 ![MongoDB](https://img.shields.io/badge/MongoDB-5.0-47A248?logo=mongodb)
