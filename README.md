@@ -4,7 +4,7 @@
 ![Node.js](https://img.shields.io/badge/Node.js-16.x-339933?logo=node.js)
 ![MongoDB](https://img.shields.io/badge/MongoDB-5.0-47A248?logo=mongodb)
 
-Um aplicativo full-stack para gerenciamento de notas com **autenticação segura** e **editor de texto rico**.
+Um aplicativo full-stack para gerenciamento de notas com **autenticação segura** e **editor de texto**.
 
 ## 🚀 Funcionalidades
 
